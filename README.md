@@ -24,6 +24,7 @@ A simple PHP application to convert WhatsApp chat exports (ZIP files) into a PDF
 2. Upload your WhatsApp export `.zip` file.
 3. Preview the chat.
 4. Click "Download PDF".
+5. If downloaded PDF is broken, use browser screenshot extension instead.
 
 ## Note
 The parsing logic is based on common WhatsApp export formats. If your chat format is different (e.g., different date format), you might need to adjust the regex in `process.php`.
