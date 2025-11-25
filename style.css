@@ -1,0 +1,376 @@
+:root {
+    --wa-teal: #008069;
+    --wa-light-green: #25D366;
+    --wa-bg: #E5DDD5;
+    --wa-white: #FFFFFF;
+    --wa-message-out: #DCF8C6;
+    --wa-message-in: #FFFFFF;
+    --text-primary: #303030;
+    --text-secondary: #667781;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: var(--wa-bg);
+    color: var(--text-primary);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.header h1 {
+    color: var(--wa-teal);
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.header p {
+    color: var(--text-secondary);
+}
+
+.card {
+    background: var(--wa-white);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.file-upload-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    width: 100%;
+}
+
+.file-upload-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+}
+
+.file-upload-placeholder {
+    background: #f0f2f5;
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    color: var(--text-secondary);
+    transition: all 0.3s;
+}
+
+.file-upload-wrapper:hover .file-upload-placeholder {
+    border-color: var(--wa-teal);
+    background: #e6fffa;
+}
+
+.btn-primary {
+    background-color: var(--wa-teal);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #006d59;
+}
+
+.instructions {
+    background: rgba(255, 255, 255, 0.6);
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 0.9rem;
+}
+
+.instructions h3 {
+    color: var(--wa-teal);
+    margin-bottom: 10px;
+}
+
+.instructions ol {
+    padding-left: 20px;
+    color: var(--text-secondary);
+}
+
+.instructions li {
+    margin-bottom: 5px;
+}
+
+/* Chat Interface Styles */
+.chat-container {
+    background-color: #e5ddd5;
+    background-image: url('wa-bg.png');
+    min-height: 100vh;
+    width: 100%;
+    max-width: 800px;
+    /* Limit width for PDF readability */
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.chat-header {
+    background-color: var(--wa-teal);
+    color: white;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.chat-header h2 {
+    font-size: 1.1rem;
+    margin-left: 10px;
+}
+
+.chat-body {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.message {
+    max-width: 65%;
+    margin-bottom: 8px;
+    padding: 6px 7px 8px 9px;
+    border-radius: 7.5px;
+    position: relative;
+    font-size: 14.2px;
+    line-height: 19px;
+    box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.13);
+    word-wrap: break-word;
+}
+
+.message.received {
+    background-color: var(--wa-white);
+    align-self: flex-start;
+    border-top-left-radius: 0;
+}
+
+.message.sent {
+    background-color: var(--wa-message-out);
+    align-self: flex-end;
+    border-top-right-radius: 0;
+}
+
+.message-sender {
+    font-size: 12.8px;
+    font-weight: 500;
+    color: #e542a3;
+    /* Random color, usually varies */
+    margin-bottom: 4px;
+    display: block;
+}
+
+.message-text {
+    color: #111b21;
+}
+
+.message-time {
+    float: right;
+    font-size: 11px;
+    color: rgba(17, 27, 33, 0.5);
+    margin-top: 4px;
+    margin-left: 10px;
+    position: relative;
+    top: 3px;
+}
+
+.system-message {
+    align-self: center;
+    background-color: rgba(225, 245, 254, 0.92);
+    color: #111b21;
+    font-size: 12.5px;
+    padding: 5px 12px;
+    border-radius: 7.5px;
+    margin: 8px 0;
+    text-align: center;
+    box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.13);
+}
+
+.date-divider {
+    align-self: center;
+    background-color: rgba(225, 245, 254, 0.92);
+    color: #111b21;
+    font-size: 12.5px;
+    padding: 5px 12px;
+    border-radius: 7.5px;
+    margin: 8px 0;
+    text-align: center;
+    box-shadow: 0 1px 0.5px rgba(0, 0, 0, 0.13);
+    text-transform: uppercase;
+}
+
+.media-attachment img {
+    max-width: 100%;
+    border-radius: 6px;
+    margin-bottom: 4px;
+}
+
+.pdf-controls {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    gap: 10px;
+}
+
+.btn-download {
+    background-color: var(--wa-teal);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.2s;
+}
+
+.btn-download:hover {
+    transform: scale(1.05);
+}
+
+.btn-reset {
+    background-color: #ef5350;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.2s;
+}
+
+.btn-reset:hover {
+    transform: scale(1.05);
+    background-color: #d32f2f;
+}
+
+@media print {
+    .pdf-controls {
+        display: none;
+    }
+
+    .chat-container {
+        max-width: 100%;
+        box-shadow: none;
+    }
+}
+
+/* Contact Card Styles */
+.contact-card {
+    background-color: rgba(0, 0, 0, 0.05);
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    border-left: 4px solid transparent;
+    /* Placeholder for potential accent */
+}
+
+.contact-header {
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.contact-avatar {
+    width: 35px;
+    height: 35px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    overflow: hidden;
+}
+
+.contact-avatar svg {
+    width: 20px;
+    height: 20px;
+    fill: #fff;
+}
+
+.contact-info {
+    flex: 1;
+    overflow: hidden;
+}
+
+.contact-name {
+    font-size: 14px;
+    color: #007bff;
+    /* WhatsApp blue-ish for names */
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.contact-footer {
+    padding: 8px;
+    text-align: center;
+    color: #007bff;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.contact-footer:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
